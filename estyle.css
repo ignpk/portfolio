@@ -11,7 +11,7 @@ canvas {
 
 .container{
   justify-content: left;
-  background-color: brown;
+  background-color: rgb(42, 63, 165);
   width: 60%;
   margin-left: 20%;
   display: flex;
