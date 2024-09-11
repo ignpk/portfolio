@@ -1,0 +1,466 @@
+.FONDOCOLOR {
+  background-color: rgb(83, 83, 83);
+}
+
+/*-------------------------------------introduccion------------------------------------*/
+.intro {
+  overflow: hidden;
+  background: linear-gradient(0deg, rgb(160, 160, 160) 0%, rgb(75, 75, 75) 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cuadrowall {
+  background-image: url(../assets/wallcuadro1a.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: blur(7px);
+  transition: 0.5s ease;
+}
+
+.cuadrowall:hover {
+  background-image: url(../assets/wallcuadro2.jpg);
+  filter: blur(1px);
+  transition: 1s ease;
+}
+
+.cuadrowall:hover + .nombre {
+  filter: blur(10px);
+  transition: 1s ease;
+}
+
+.nombre {
+  z-index: 9999;
+  position: absolute;
+  background-image: url(../assets/nombreBLANCO.png);
+  background-size: cover;
+}
+
+.descripcionmia {
+  font-size: 100%;
+  left: 6%;
+  text-align: left;
+  position: absolute;
+  top: 30%;
+}
+
+/*------------------------barra lateras-------------------------------------------*/
+.barralateral {
+  justify-content: center;
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.382);
+  backdrop-filter: blur(5px);
+  transform: translateX(-75%);
+  transition: 0.5s ease;
+}
+
+.barralateral:hover {
+  z-index: 99999;
+  transform: translateX(0%);
+}
+
+.barralateral:hover > .CONTENEDORBARRALATERAL {
+  filter: opacity(1);
+  pointer-events: all;
+  animation-name: demoraenaparecer;
+  animation-duration: 0.5s;
+}
+
+@keyframes demoraenaparecer {
+  0% {
+    filter: opacity(0%);
+    pointer-events: none;
+  }
+  100% {
+    filter: opacity(100%);
+    pointer-events: all;
+  }
+}
+
+.logoimagenbarra {
+  position: relative;
+  left: 25%;
+  background-image: url(../assets/NUEVO\ LOGO\ BLANCO.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 60%;
+  height: 25%;
+}
+
+.CONTENEDORBARRALATERAL {
+  transition: 0.2s ease;
+  list-style-type: none;
+  height: 100%;
+  width: 100%;
+  filter: opacity(0);
+  pointer-events: none;
+}
+
+.CONTENEDORBARRALATERAL a {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: 'Oxygen', sans-serif;
+  line-height: 4;
+}
+
+.opciones {
+  margin-top: -16px;
+  border-bottom: 1px solid #ffffff76;
+  width: 80%;
+}
+
+.CONTENEDORBARRALATERAL ul {
+  transition: 0.2s ease;
+}
+
+.CONTENEDORBARRALATERAL ul:hover {
+  font-weight: bolder;
+  transition: 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.297);
+}
+
+.botonbarra {
+  position: absolute;
+  top: 40%;
+  transform: translate(-0%, 50%);
+  width: 25%;
+  height: 10%;
+  background-image: url(../assets/png-clipart-menu-icon-icons-logos-emojis-menu-icons-thumbnail.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  right: 0;
+  transition: 0.5s ease;
+}
+
+.barralateral:hover > .botonbarra {
+  filter: opacity(0);
+}
+
+.botonredes {
+  margin: 0% 10% 0% 0%;
+  position: relative;
+  bottom: -2%;
+  right: -22%;
+  background-color: rgba(0, 0, 0, 0);
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  transition: 0.3s ease;
+  background-size: contain;
+  filter: opacity(20%);
+}
+
+.botonredes:hover {
+  transform: scale(1.05);
+  border: 2px solid rgb(255, 255, 255);
+  filter: opacity(90%);
+}
+
+.IDIOMA {
+  text-decoration: none;
+  z-index: 99999;
+  margin: 10px;
+  filter: opacity(20%);
+}
+
+.IDIOMA:hover {
+  text-shadow: 0px 0px 11px rgba(255,255,255,1);
+  font-weight: bolder;
+  filter: opacity(100%);
+}
+
+/*-------------------------------------introduccion------------------------------------*/
+
+/*-------------------------------------galeria ------------------------------------*/
+
+.blur {
+  filter: blur(10px);
+}
+
+.cartacont {
+  border: none;
+  z-index: 99999;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease;
+}
+
+.cartacont:hover {
+  transform: scale(1.5);
+  transition: 0.5s ease;
+  z-index: 99999;
+}
+
+.infocarta {
+  background-color: rgba(0, 0, 0, 0.403);
+  box-shadow: 0px 0px 1000px 1000px rgba(0,0,0,0.403);
+  border: none;
+  color: white;
+  z-index: 9;
+  top: 0%;
+  left: 140%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: 0.6s ease;
+  filter: opacity(0);
+}
+
+.infocarta p {
+  word-break: break-all;
+}
+
+.cartacont:hover + .infocarta {
+  display: block;
+  filter: opacity(100%);
+}
+
+.cartagaleria {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 999;
+  transition: 1s;
+}
+
+.medio1 {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.arriba1 {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.sombra {
+  z-index: 12;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: opacity(100%);
+  transition: 0.5s ease;
+}
+
+.cartacont:hover .sombra {
+  filter: opacity(0%);
+}
+
+/*-------------------------------------galeria ------------------------------------*/
+
+/*-------------------------------------------------------------------*/
+/*------------------------BRILLO CARTA-------------------------------------------*/
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0px 0px 100px 100px rgb(255, 255, 255);
+  z-index: 6;
+}
+/*-------------------------------------------------------------------*/
+
+.carouselcontainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  padding-top: 11%;
+  right: 15%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.artwork {
+  position: relative;
+  border-radius: 2px;
+  transition: transform 0.5s ease;
+}
+
+.prev, .next {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.401);
+  height: 60px;
+  width: 60px;
+  top: 50%;
+  position: absolute;
+  border: none;
+  border-radius: 50%;
+  font-size: 130%;
+  cursor: pointer;
+  z-index: 99999999;
+  transition: 0.4s ease;
+}
+
+.prev {
+  left: 10%;
+}
+
+.next {
+  right: 10%;
+}
+
+.prev:hover, .next:hover {
+  box-shadow: 0px 0px 10px 3px rgba(1, 255, 39, 0.75);
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  transition: 0.2s ease;
+}
+
+/* Cuadros de los lados, opacidad del 50% */
+.near {
+  transform: scale(0.7);
+  pointer-events: none;
+  filter: opacity(70%) blur(5px);
+}
+
+/* Resto de los cuadros, opacidad del 10% */
+.far {
+  transform: scale(0.5);
+  pointer-events: none;
+  filter: opacity(40%) blur(15px);
+}
+
+.tiendair {
+  z-index: 999999;
+  right: 5%;
+  bottom: 5%;
+  position: absolute;
+}
+
+.tiendair button {
+  transition: 0.3s ease;
+  text-wrap: wrap;
+  background-color: rgba(0, 247, 255, 0.584);
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+}
+
+.tiendair button:hover {
+  transition: 0.3s ease;
+  text-shadow: 0px 0px 10px rgb(45, 247, 5);
+  box-shadow: 0px 0px 10px 3px rgba(1, 255, 39, 0.75);
+  color: white;
+  background-color: rgba(0, 255, 128, 0.287);
+  border: 2px solid white;
+}
+
+/* Media query para pantallas entre 600px y 900px */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .carousel {
+    right: 5%;
+  }
+  .artwork{
+    transform: scale(0.8);
+  }
+  .cartacont:hover {
+    transform: scale(1.3);
+  }
+
+  .prev, .next {
+    transform: scale(0.7);
+    top: 73%;
+  }
+
+  .prev {
+    left: 15%;
+  }
+
+  .next {
+    right: 30%;
+  }
+
+  .barralateral {
+    width: 35%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel {
+    padding: 20% 0% 0% 35%;
+  }
+  .artwork{
+    transform: scale(0.7);
+  }
+  .prev, .next {
+    transform: scale(0.5);
+    top: 75%;
+  }
+
+  .prev {
+    left: 16%;
+  }
+
+  .cartacont:hover {
+    transform: scale(1.15);
+  }
+
+  .barralateral {
+    backdrop-filter: blur(0px);
+    background-color: rgba(240, 248, 255, 0);
+    padding-left: 10%;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    transform: translateX(-85%) translateY(-90%);
+  }
+
+  .barralateral:hover {
+    background-color: rgba(0, 0, 0, 0.382);
+    transform: translateX(0%) translateY(0%);
+  }
+
+  .botonbarra {
+    top: 85%;
+    transform: translate(-0%, 50%);
+    width: 15%;
+    height: 10%;
+    right: -2%;
+  }
+
+  .CONTENEDORBARRALATERAL ul:hover {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .tiendair {
+    right: 0%;
+    bottom: 2%;
+    transform: scale(0.8);
+  }
+
+  .infocarta {
+    padding: 5%;
+    background-color: rgba(0, 0, 0, 0.403);
+    z-index: 9999999999;
+    top: 0%;
+    left: 0%;
+    pointer-events: none;
+  }
+}
