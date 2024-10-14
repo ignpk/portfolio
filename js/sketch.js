@@ -1,4 +1,27 @@
 
+/*---------------------------------background inicio------------------------------------------*/
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const cuadrowallImages = [
+    'assets/wall1.png',
+    'assets/wall2.jpg',
+    'assets/wall3.jpg', // Añade más imágenes según necesites
+  ];
+
+  let currentImageIndex = 0;
+  const cuadrowall = document.querySelector('.cuadrowall');
+
+  function changeCuadrowallImage() {
+    // Cambiar la imagen de fondo cada 1 segundo
+    cuadrowall.style.backgroundImage = `url(${cuadrowallImages[currentImageIndex]})`;
+    currentImageIndex = (currentImageIndex + 1) % cuadrowallImages.length; // Ciclar las imágenes
+  }
+
+  // Cambia la imagen cada 1 segundo
+  setInterval(changeCuadrowallImage, 5000);
+});
+
 
 /*--------------------------------------efecto holografdico 3d---------------------------------------*/
 
@@ -16,7 +39,7 @@ const cartagaleria = document.querySelectorAll(".cartagaleria");
 
         // Transformación basada en las coordenadas del puntero o la orientación del dispositivo
         const xAxis = (centerX - x) / 20;
-        const yAxis = (centerY - y) / 20;
+        const yAxis = (centerY - y) / -20;
 
         // Transformación basada en la orientación del dispositivo
         const deviceX = gamma || 0; // Valores del giroscopio
@@ -24,13 +47,13 @@ const cartagaleria = document.querySelectorAll(".cartagaleria");
         const deviceZ = alpha || 0; // Valores del giroscopio
 
         elemento.style.transition = "all 0.15s ease";
-        elemento.style.transform = `perspective(800px) rotateX(${yAxis + deviceY}deg) rotateY(${xAxis + deviceX}deg)`;
+        elemento.style.transform = `perspective(1500px) rotateX(${yAxis + deviceY}deg) rotateY(${xAxis + deviceX}deg)`;
 
         // Calcular el box-shadow
         const shadowX = (x - rect.left - rect.width / 2) / 8;
         const shadowY = (y - rect.top - rect.height / 2) / 15;
 
-        elemento.style.boxShadow = `${shadowX}px ${shadowY}px 10px rgba(0, 0, 0, 0.3)`;
+        elemento.style.boxShadow = `${shadowX}px ${shadowY}px 5px rgba(0, 0, 0, 0.3)`;
 
         circle.style.left = `${x - rect.left - 50}px`;
         circle.style.top = `${y - rect.top - 50}px`;
@@ -55,14 +78,14 @@ const cartagaleria = document.querySelectorAll(".cartagaleria");
       elemento.addEventListener("mousemove", handleMouseMove);
       elemento.addEventListener("mouseleave", () => {
         elemento.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
-        elemento.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
+        elemento.style.transform = "perspective(1500px) rotateY(0deg) rotateX(0deg)";
         elemento.style.boxShadow = "none";
       });
 
       elemento.addEventListener("touchmove", handleTouchMove);
       elemento.addEventListener("touchend", () => {
         elemento.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
-        elemento.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
+        elemento.style.transform = "perspective(1500px) rotateY(0deg) rotateX(0deg)";
         elemento.style.boxShadow = "none";
       });
 
@@ -97,12 +120,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const nombre = document.querySelector('.nombre');
   const carouselcontainer = document.querySelectorAll('.carouselcontainer');
 
-
+  // Efectos para la barralateral
   barralateral.addEventListener('mouseover', () => {
-    cuadrowall.style.transform = 'scale(0.9) translateX(8%)';
+    cuadrowall.style.transform = 'scale(1) translateX(8%)';
     nombre.style.transform = 'scale(1.1) translateX(35%)';
-    cuadrowall.style.filter = 'blur(10px)';
-    nombre.style.filter = 'blur(5px) opacity(80%)';
+    cuadrowall.style.filter = 'blur(5px)';
+    nombre.style.filter = 'blur(5px) opacity(30%)';
   });
 
   barralateral.addEventListener('mouseout', () => {
@@ -116,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
     elements.forEach((element) => {
       element.classList.add('blur');
       element.style.transition = 'filter 0.5s, transform 0.5s';
-      element.style.transform = 'scale(0.95)';
+      element.style.transform = 'scale(0.98)';
     });
   };
 
@@ -130,12 +153,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
   barralateral.addEventListener('mouseenter', () => {
     applyHoverEffects(carouselcontainer);
-
   });
 
   barralateral.addEventListener('mouseleave', () => {
     removeHoverEffects(carouselcontainer);
+  });
 
+  // Efecto hover para cuadrowall -> nombre
+  cuadrowall.addEventListener('mouseover', () => {
+    nombre.style.filter = 'blur(5px) opacity(50%)';
+    nombre.style.transition = '0.5s ease';
+  });
+
+  cuadrowall.addEventListener('mouseout', () => {
+    nombre.style.filter = 'none';
   });
 });
 
@@ -188,7 +219,7 @@ function moveCarousel(direction) {
     }
 
     // Calcular el ancho de cada obra para mover correctamente
-    const itemWidth = artworks[0].offsetWidth + 10; // 20px es el margen
+    const itemWidth = artworks[0].offsetWidth + 1; // 20px es el margen
 
     // Mover el carrusel usando `translateX` para que el cuadro central siempre esté en el medio
     const moveX = -(currentIndex -2) * itemWidth;
@@ -200,7 +231,3 @@ function moveCarousel(direction) {
 
 // Inicializar el carrusel
 updateActiveArtwork();
-
-
-
-

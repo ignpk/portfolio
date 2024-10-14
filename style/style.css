@@ -12,51 +12,135 @@
 }
 
 .cuadrowall {
-  background-image: url(../assets/wallcuadro1a.jpg);
+  transform: scale(1.1);
+  background-image: url(../assets/wall1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   position: absolute;
-  filter: blur(7px);
+  filter: blur(3px);
   transition: 0.5s ease;
 }
 
 .cuadrowall:hover {
-  background-image: url(../assets/wallcuadro2.jpg);
-  filter: blur(1px);
+  filter: blur(0px);
   transition: 1s ease;
 }
 
-.cuadrowall:hover + .nombre {
-  filter: blur(10px);
-  transition: 1s ease;
-}
 
-.nombre {
+.nombre{
+  padding-top: 50%;
+  left: 5%;
+  width: 50%;
+  height: 100%;
   z-index: 9999;
   position: absolute;
   background-image: url(../assets/nombreBLANCO.png);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: tardaenaparecer 4s;
+}
+@keyframes tardaenaparecer{
+  0%{
+filter: opacity(0%);
+  }
+  80%{
+    filter: opacity(0%);
+    transform: translateX(-50%);
+  }
+  100%{
+    filter: opacity(100%);
+  }
+}
+.nombrelogo{
+  z-index: 99999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animacionintro 3s;
+}
+@keyframes animacionintro{
+  0%{
+    width: 250px;
+    height: 250px;
+    filter: opacity(100%);
+  }
+  85%{
+    width: 250px;
+    height: 250px;
+    filter: opacity(100%);
+  }
+  100%{
+    width: 250px;
+    height: 250px;
+    filter: opacity(0%);
+  }
+}
+
+.sello, .firma{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sello{
+  animation: girarsello 3s;
+}
+@keyframes girarsello{
+  0%{
+    filter: opacity(0%);
+    transform: rotate(60deg);
+  }
+  10%{
+    filter: opacity(0%);
+  }
+  100%{
+    filter: opacity(100%);
+    transform: rotate(0deg);
+  }
+}
+.firma{
+animation: aparecefirma 5s;
+}
+@keyframes aparecefirma{
+  0%{
+    filter: opacity(0%);
+
+  }
+  100%{
+    filter: opacity(100%);
+  }
 }
 
 .descripcionmia {
-  font-size: 100%;
-  left: 6%;
-  text-align: left;
+  padding: 5%;
+  width: 50%;
+  height: 100%;
+  left: 9%;
   position: absolute;
-  top: 30%;
+}
+ p{
+  color: white;
+font-family: Arial, Helvetica, sans-serif;
+}
+.fotomia{
+  position:absolute ;
+  width: 41%;
+  height: 100%;
+  right: 0;
 }
 
 /*------------------------barra lateras-------------------------------------------*/
 .barralateral {
+  align-items: center;
   justify-content: center;
   position: fixed;
   width: 20%;
   height: 100%;
-  z-index: 99999;
-  background-color: rgba(0, 0, 0, 0.382);
-  backdrop-filter: blur(5px);
+  z-index: 99999999999;
+background-color: rgba(0, 0, 0, 0.286);
   transform: translateX(-75%);
   transition: 0.5s ease;
 }
@@ -84,17 +168,12 @@
   }
 }
 
-.logoimagenbarra {
-  position: relative;
-  left: 25%;
-  background-image: url(../assets/NUEVO\ LOGO\ BLANCO.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 60%;
-  height: 25%;
-}
+
 
 .CONTENEDORBARRALATERAL {
+  position: relative;
+  align-items: center;
+  justify-content: center;
   transition: 0.2s ease;
   list-style-type: none;
   height: 100%;
@@ -103,60 +182,79 @@
   pointer-events: none;
 }
 
+.logoimagenbarra {
+  margin: auto;
+  position: relative;
+  background-image: url(../assets/NUEVO\ LOGO\ BLANCO.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+}
+
 .CONTENEDORBARRALATERAL a {
   text-align: center;
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-family: 'Oxygen', sans-serif;
   line-height: 4;
 }
 
 .opciones {
-  margin-top: -16px;
-  border-bottom: 1px solid #ffffff76;
-  width: 80%;
+  border-bottom: 1px solid #ffffff44;
+  width: 100%;
+}
+.opciones:hover{
+  background-color: rgba(255, 255, 255, 0.162);
 }
 
-.CONTENEDORBARRALATERAL ul {
-  transition: 0.2s ease;
-}
 
-.CONTENEDORBARRALATERAL ul:hover {
-  font-weight: bolder;
-  transition: 0.2s ease;
-  background-color: rgba(255, 255, 255, 0.297);
-}
 
 .botonbarra {
   position: absolute;
   top: 40%;
   transform: translate(-0%, 50%);
   width: 25%;
-  height: 10%;
+  height: 8%;
   background-image: url(../assets/png-clipart-menu-icon-icons-logos-emojis-menu-icons-thumbnail.png);
   background-size: contain;
   background-repeat: no-repeat;
-  right: 0;
+  right: -2%;
   transition: 0.5s ease;
+  animation-name: demoraenaparecer;
+  animation-duration: 0.5s;
 }
 
 .barralateral:hover > .botonbarra {
   filter: opacity(0);
 }
 
-.botonredes {
-  margin: 0% 10% 0% 0%;
+.contenedorbotonredes{
+  margin-top: 45%;
+  justify-content: center;
   position: relative;
-  bottom: -2%;
-  right: -22%;
-  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+}
+.contenedorbotonidiomas{
+  height: 10%;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.botonredes {
+  filter: opacity(30%);
+margin: 0px 10px 0px 10px;
+  position: relative;
   width: 50px;
   height: 50px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
   transition: 0.3s ease;
   background-size: contain;
-  filter: opacity(20%);
 }
 
 .botonredes:hover {
@@ -166,16 +264,30 @@
 }
 
 .IDIOMA {
-  text-decoration: none;
+  padding: 0px 10px 0px 10px;
   z-index: 99999;
-  margin: 10px;
-  filter: opacity(20%);
+  filter: opacity(40%);
+ font-size: 90%;
 }
 
 .IDIOMA:hover {
   text-shadow: 0px 0px 11px rgba(255,255,255,1);
   font-weight: bolder;
   filter: opacity(100%);
+}
+
+.cerrar{
+  filter: opacity(0);
+pointer-events: none;
+  z-index: 9999999;
+  position:absolute;
+  color: white;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  width: 100%;
+  height:10%;
+  font-size: 200%;
+  bottom: 0;
 }
 
 /*-------------------------------------introduccion------------------------------------*/
@@ -190,28 +302,25 @@
   border: none;
   z-index: 99999;
   position: relative;
-  width: 100%;
-  height: 100%;
   transition: 0.5s ease;
 }
 
 .cartacont:hover {
-  transform: scale(1.5);
+  transform: scale(1.3);
   transition: 0.5s ease;
   z-index: 99999;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0);
 }
 
 .infocarta {
-  background-color: rgba(0, 0, 0, 0.403);
-  box-shadow: 0px 0px 1000px 1000px rgba(0,0,0,0.403);
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   z-index: 9;
-  top: 0%;
-  left: 140%;
+  top: 25%;
+  left: 85%;
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
   transition: 0.6s ease;
   filter: opacity(0);
 }
@@ -221,7 +330,6 @@
 }
 
 .cartacont:hover + .infocarta {
-  display: block;
   filter: opacity(100%);
 }
 
@@ -250,33 +358,32 @@
   height: 100%;
   position: absolute;
 }
-
-.sombra {
-  z-index: 12;
+.luz{
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
-  filter: opacity(100%);
+  z-index: 99;
+  box-shadow: 0px 200px 192px -143px rgba(255, 250, 237, 0.547) inset;
   transition: 0.5s ease;
 }
-
-.cartacont:hover .sombra {
+.cartacont:hover .luz {
   filter: opacity(0%);
-}
 
+}
 /*-------------------------------------galeria ------------------------------------*/
 
 /*-------------------------------------------------------------------*/
 /*------------------------BRILLO CARTA-------------------------------------------*/
 .circle {
   position: absolute;
-  border-radius: 50%;
   box-shadow: 0px 0px 100px 100px rgb(255, 255, 255);
   z-index: 6;
 }
 /*-------------------------------------------------------------------*/
 
 .carouselcontainer {
+
+  background: linear-gradient(27deg, rgb(0, 0, 0) 0%, rgb(182, 182, 182) 100%);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -288,13 +395,15 @@
 .carousel {
   position: relative;
   height: 100%;
-  padding-top: 11%;
-  right: 15%;
+  right: -70%;
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
 
 .artwork {
+  padding:2% 0% 0% 3%;
+  height: 100%;
+  width: 650px;
   position: relative;
   border-radius: 2px;
   transition: transform 0.5s ease;
@@ -331,18 +440,18 @@
   transition: 0.2s ease;
 }
 
+
+
 /* Cuadros de los lados, opacidad del 50% */
 .near {
-  transform: scale(0.7);
   pointer-events: none;
-  filter: opacity(70%) blur(5px);
+  filter: blur(2px);
 }
 
 /* Resto de los cuadros, opacidad del 10% */
 .far {
-  transform: scale(0.5);
   pointer-events: none;
-  filter: opacity(40%) blur(15px);
+  filter: blur(5px);
 }
 
 .tiendair {
@@ -371,21 +480,15 @@
   border: 2px solid white;
 }
 
-/* Media query para pantallas entre 600px y 900px */
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-  .carousel {
-    right: 5%;
-  }
-  .artwork{
-    transform: scale(0.8);
-  }
-  .cartacont:hover {
-    transform: scale(1.3);
-  }
+
+/* ------------------------------------MEDIA--------------------------------- */
+
+/* Media query para pantallas entre 600px y 1000px */
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
 
   .prev, .next {
     transform: scale(0.7);
-    top: 73%;
+    top: 50%;
   }
 
   .prev {
@@ -393,48 +496,59 @@
   }
 
   .next {
-    right: 30%;
+    right: 15%;
   }
 
   .barralateral {
-    width: 35%;
+    width: 25%;
     height: 100%;
   }
 }
+/* -----------------------------------750px--------------------------------- */
+@media only screen and (max-width: 750px) {
 
-@media only screen and (max-width: 600px) {
-  .carousel {
-    padding: 20% 0% 0% 35%;
+  .nombre{
+    padding-top: 50%;
+    top: 5%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
   }
-  .artwork{
-    transform: scale(0.7);
-  }
+
   .prev, .next {
-    transform: scale(0.5);
-    top: 75%;
+    transform: scale(0.7);
+    top: 78%;
   }
 
   .prev {
     left: 16%;
   }
 
+
   .cartacont:hover {
     transform: scale(1.15);
   }
 
   .barralateral {
-    backdrop-filter: blur(0px);
-    background-color: rgba(240, 248, 255, 0);
-    padding-left: 10%;
+    background-color: rgba(255, 255, 255, 0);
     width: 100%;
-    height: 100%;
+    height: 90%;
     z-index: 99999;
     transform: translateX(-85%) translateY(-90%);
   }
 
   .barralateral:hover {
-    background-color: rgba(0, 0, 0, 0.382);
+    background-color: rgba(0, 0, 0, 0.438);
     transform: translateX(0%) translateY(0%);
+  }
+  .barralateral:hover + .cerrar {
+ filter: opacity(70%);
+ pointer-events: all;
+  }
+
+  .botonredes {
+    bottom: 250%;
+  margin: 0px 20px 0px 20px;
   }
 
   .botonbarra {
@@ -445,22 +559,50 @@
     right: -2%;
   }
 
-  .CONTENEDORBARRALATERAL ul:hover {
-    background-color: rgba(255, 255, 255, 0);
-  }
-
   .tiendair {
     right: 0%;
-    bottom: 2%;
+    top: -8%;
     transform: scale(0.8);
   }
 
   .infocarta {
     padding: 5%;
-    background-color: rgba(0, 0, 0, 0.403);
     z-index: 9999999999;
-    top: 0%;
-    left: 0%;
+    top: 11%;
+    left: 22%;
     pointer-events: none;
   }
+  .carousel {
+    right: -265%;
+  }
+
+  .artwork {
+    top: -4%;
+transform: scale(0.8);
+  }
+  .infocarta {
+    pointer-events: none;
+background-color: rgba(0, 0, 0, 0.491);
+    color: rgb(255, 255, 255);
+    top: -8%;
+    left: 0%;
+    height: 130%;
+    width: 100%;
+    padding: 30% 0% 0% 30%;
+    font-size: 130%;
+  }
+
+
+  .descripcionmia {
+    width: 100%;
+    height: 800px;
+    overflow-wrap: break-word;
+    left: 0%;
+    top: 10%;
+    position: absolute;
+    padding: 15%;
+  }
+  
 }
+
+
